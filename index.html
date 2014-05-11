@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Noah's ArK</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <link rel="alternate" type="application/atom+xml" href="atom.xml" />
+        <link rel="stylesheet" href="style.css" />
+        <link href='http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <header>
+            <h1><a href="">Noah's ArK</a></h1> by The Team
+        </header>
+
+<article>
+    <header>
+        
+        <h1><a href="2010/12/07/matrices-sum-of-squares-zero/">제곱합이 0이 되는 2x2 행렬쌍에 대하여</a></h1>
+        <time datetime="2010-12-07T00:00:00Z" pubdate>December 07, 2010</time>
+        
+    </header>
+    <ul>
+<li>국문 연구 주제: 제곱합이 0이 되는 2×2 행렬쌍에 대하여</li>
+<li>영문 연구 주제: Matrices satisfying that the sum of squares equals zero</li>
+<li>연구 분야: Matrix 및 Linear algebra</li>
+</ul>
+<h2>연구 내용 요약문</h2>
+<h3>연구 동기</h3>
+<p><img alt="a^2=-b^2" src="http://eq.springnote.com/tex_image?source=a%5E2%3D-b%5E2"/>에 대하여 생각해보면 두 변수가 실수 내에서 정의될 때에는 <img alt="a=b=0" src="http://eq.springnote.com/tex_image?source=a%3Db%3D0"/>만이 해가 되지만 복소수로 범위가 확장된다면 이야기가 달라진다. 복소수에서는 <img alt="a, klzzwxh:0000b" src="http://eq.springnote.com/tex_image?source=a%2C%20%5C%20b"/>가 서로 <img alt="i" src="http://eq.springnote.com/tex_image?source=i"/>배 혹은 <img alt="-i" src="http://eq.springnote.com/tex_image?source=-i"/>배 차이나는 경우에 앞의 방정식을 만족하며 그 쌍은 무수히 많다. 이것이 행렬으로 확장된다면 그 결과가 어떻게 바뀌어질지에 대한 궁금증에 이 연구를 시작하였다.</p>
+<h3>연구 내용</h3>
+<p>연구는 2×2 행렬에 한정되었으며 초등적인 방법만을 사용하여 결과를 이끌어내었다.</p>
+<p><img alt="a^2+b^2+c^2=0" src="http://eq.springnote.com/tex_image?source=a%5E2%2Bb%5E2%2Bc%5E2%3D0"/>처럼 항의 개수가 여러개인 경우에도 쌍들 관의 관계를 알 수 있었다.</p>
+<h3>연구 후 느낀점</h3>
+<p>행렬에 대한 주제였으나 연구의 전개는 공간과 벡터의 개념으로 연계되었다는 사실이 꽤 놀라웠다. 허나 조금더 크게 확장하지 못한 점 - 3×3 행렬 또는 그 이상의 차원으로 - 또 이번 연구가 가지고 있는 의미에 대한 분석을 수월하게 하지 못하였다는 것이 아쉽다. 이 연구는 내가 알고 있는 것보다 더 큰 의미를 내포하고 있다고 믿는다.</p>
+<h2>서론</h2>
+<p>실수의 범위에서 <img alt="a^2+b^2=0" src="http://eq.springnote.com/tex_image?source=a%5E2%2Bb%5E2%3D0"/>라는 방정식이 주어진다면 <img alt="a=0,klzzwxh:0007b=" src="http://eq.springnote.com/tex_image?source=a%3D0%2C%5C%20b%3D0"/>이라고 단언할 수 있다.</p>
+<p>왜냐하면 실수 <img alt="a" src="http://eq.springnote.com/tex_image?source=a"/>에 대하여 <img alt="a^2 klzzwxh:0010e 0" src="http://eq.springnote.com/tex_image?source=a%5E2%20%5Cge%200"/>이기 때문이다.</p>
+<p>한편 변수가 복소수 또는 행렬을 전제로 한다면 이야기는 달라진다. 왜냐하면 복소수의 시스템은 <img alt="i^2=-1" src="http://eq.springnote.com/tex_image?source=i%5E2%3D-1"/>으로 제곱이 음이 되는 수들을 실수체계에 추가한 것이며 행렬 역시 <img alt="klzzwxh:0013egin{pmatrix} 3 &amp; -1 klzzwxh:0014 -2 &amp; 1 klzzwxh:0015nd{pmatrix}" src="http://eq.springnote.com/tex_image?source=%5Cbegin%7Bpmatrix%7D%203%20%26%20-1%20%5C%5C%20-2%20%26%201%20%5Cend%7Bpmatrix%7D"/> 따위를 제곱해 보면 <img alt="klzzwxh:0016egin{pmatrix} 11 &amp; -4 klzzwxh:0017 -8 &amp; 3 klzzwxh:0018nd{pmatrix}" src="http://eq.springnote.com/tex_image?source=%5Cbegin%7Bpmatrix%7D%2011%20%26%20-4%20%5C%5C%20-8%20%26%203%20%5Cend%7Bpmatrix%7D"/> 으로 그 성분들이 음이 될 수 있기 때문이다.</p>
+<p>이 글에서는 이러한 행렬들을 변수로 삼아서 변수들의 제곱의 합이 0이 되는, 즉 <img alt="a^2+b^2=0" src="http://eq.springnote.com/tex_image?source=a%5E2%2Bb%5E2%3D0"/> 또는 항수가 더 많은 <img alt="a^2+b^2+c^2=0" src="http://eq.springnote.com/tex_image?source=a%5E2%2Bb%5E2%2Bc%5E2%3D0"/> 등의 방정식을 살펴볼 것이다. 다음 정리 1은 이 글에서 가장 중요하게 작용할 정리이다.</p>
+<p>[정리 1] 2×2 행렬에 대한 Caley-Hamilton의 정리</p>
+<p>2차원 정사각행렬 <img alt="A" src="http://eq.springnote.com/tex_image?source=A"/>에 대하여 다음이 성립한다.</p>
+<p><img alt="A^2-tr(A)A+det(A)E=0" src="http://eq.springnote.com/tex_image?source=A%5E2-tr%28A%29A%2Bdet%28A%29E%3D0"/></p>
+<p>위 정리는 고교 과정의 수학Ⅰ에도 소개되어 있다.</p>
+<h2>본론</h2>
+<p>다음과 같은 방정식을 만족하는 두 행렬 <img alt="A,klzzwxh:0026B klzzwxh:0027n M_2(R)" src="http://eq.springnote.com/tex_image?source=A%2C%5C%20B%20%5Cin%20M_2%28R%29"/>에 대하여 연구하고자 한다.</p>
+<p><img alt="A^2+B^2=0" src="http://eq.springnote.com/tex_image?source=A%5E2%2BB%5E2%3D0"/>……………ⓐ케일리 해밀턴의 정리를 사용하여 ⓐ를 다음과 같이 고쳐쓰자.<img alt="tr(A)A+tr(B)B=\\LEFT\{ det(A)+det(B) \\RIGHT\} E" class="equation" src="http://eq.springnote.com/tex_image?source=tr%28A%29A%2Btr%28B%29B%3D%5CLEFT%5C%7B%20det%28A%29%2Bdet%28B%29%20%5CRIGHT%5C%7D%20E">그리고 다음과 같은 가정을 하자.<img alt="A=\\begin{pmatrix} a_1 &amp; a_2 \\ a_3 &amp; a_4 \\end{pmatrix}" class="equation" src="http://eq.springnote.com/tex_image?source=A%3D%5Cbegin%7Bpmatrix%7D%20a_1%20%26%20a_2%20%5C%5C%20a_3%20%26%20a_4%20%5Cend%7Bpmatrix%7D">, <img alt="B=\\begin{pmatrix} b_1 &amp; b_2 \\ b_3 &amp; b_4 \\end{pmatrix}" class="equation" src="http://eq.springnote.com/tex_image?source=B%3D%5Cbegin%7Bpmatrix%7D%20b_1%20%26%20b_2%20%5C%5C%20b_3%20%26%20b_4%20%5Cend%7Bpmatrix%7D">그러면 다음과 같은 네 개의 방정식을 얻는다.<img alt="tr(A)a_1+tr(B)b_1=a_1a_4-a_2a_3+b_1b_4-b_2b_3" class="equation" src="http://eq.springnote.com/tex_image?source=tr%28A%29a_1%2Btr%28B%29b_1%3Da_1a_4-a_2a_3%2Bb_1b_4-b_2b_3"> ……………ⓑ<img alt="tr(A)a_2+tr(B)b_2=0" class="equation" src="http://eq.springnote.com/tex_image?source=tr%28A%29a_2%2Btr%28B%29b_2%3D0"> ……………ⓒ<img alt="tr(A)a_3+tr(B)b_3=0" class="equation" src="http://eq.springnote.com/tex_image?source=tr%28A%29a_3%2Btr%28B%29b_3%3D0"> ……………ⓓ<img alt="tr(A)a_4+tr(B)b_4=a_1a_4-a_2a_3+b_1b_4-b_2b_3" class="equation" src="http://eq.springnote.com/tex_image?source=tr%28A%29a_4%2Btr%28B%29b_4%3Da_1a_4-a_2a_3%2Bb_1b_4-b_2b_3">……………ⓔ이차원 직교좌표계에서 다음과 같은 직선의 방정식을 생각해보자.<img alt="tr(A)x+tr(B)y = 0" class="equation" height="18" src="http://eq.springnote.com/tex_image?source=tr%28A%29x%2Btr%28B%29y%20%3D%200" width="149"> 이 방정식은 원점을 지나면서 벡터 <img alt="\\mathbf{x}=(a_1+a_4,\\ b_1+b_4)" class="equation" src="http://eq.springnote.com/tex_image?source=%5Cmathbf%7Bx%7D%3D%28a_1%2Ba_4%2C%5C%20b_1%2Bb_4%29"> 에 수직한 직선을 나타낸다.행렬 <img alt="A, \\ B" class="equation" src="http://eq.springnote.com/tex_image?source=A%2C%20%5C%20B">가 위 네 개의 방정식을 만족한다면 다음 네 점<img alt="(0,\\ 0),\\ (a_2,\\ b_2),\\ (a_3,\\ b_3),\\ (a_1-a_4,\\ b_1-b_4)" class="equation" src="http://eq.springnote.com/tex_image?source=%280%2C%5C%200%29%2C%5C%20%28a_2%2C%5C%20b_2%29%2C%5C%20%28a_3%2C%5C%20b_3%29%2C%5C%20%28a_1-a_4%2C%5C%20b_1-b_4%29"> 은 모두 이 직선 위에 있다.이제 ⓑ와 ⓔ 방정식을 더하면<img alt="(a_1+a_4)^2+(b_1+b_4)^2=2(a_1a_4-a_2a_3+b_1b_4-b_2b_3)" class="equation" src="http://eq.springnote.com/tex_image?source=%28a_1%2Ba_4%29%5E2%2B%28b_1%2Bb_4%29%5E2%3D2%28a_1a_4-a_2a_3%2Bb_1b_4-b_2b_3%29"><img alt="\\Leftrightarrow \\frac{tr(A)^2+(a_1-a_4)^2}{2}+ \\frac{tr(B)^2+(b_1-b_4)^2}{2}+ 2a_2a_3+2b_2b_3=0 " class="equation" src="http://eq.springnote.com/tex_image?source=%5CLeftrightarrow%20%5C%0D%0A%5Cfrac%7Btr%28A%29%5E2%2B%28a_1-a_4%29%5E2%7D%7B2%7D%2B%0D%0A%5Cfrac%7Btr%28B%29%5E2%2B%28b_1-b_4%29%5E2%7D%7B2%7D%2B%0D%0A2a_2a_3%2B2b_2b_3%3D0%0D%0A"> ……………ⓕ다음과 같은 이차원 벡터를 도입하면 편리하다.<img alt="\\mathbf{y_1}=(a_1-a_4,\\ b_1-b_4)" class="equation" src="http://eq.springnote.com/tex_image?source=%5Cmathbf%7By_1%7D%3D%28a_1-a_4%2C%5C%20b_1-b_4%29">, <img alt="\\mathbf{y_2}=(a_2,\\ b_2)" class="equation" src="http://eq.springnote.com/tex_image?source=%5Cmathbf%7By_2%7D%3D%28a_2%2C%5C%20b_2%29">, <img alt="\\mathbf{y_3}=(a_3,\\ b_3)" class="equation" src="http://eq.springnote.com/tex_image?source=%5Cmathbf%7By_3%7D%3D%28a_3%2C%5C%20b_3%29"> 그러면 ⓕ는 2로 나누어 다음과 같이 쓸수있다.<img alt="klzzwxh:0058eft| klzzwxh:0059rac{ klzzwxh:0060athbf{x} }{2} klzzwxh:0061ight|^2+ klzzwxh:0062eft| klzzwxh:0063rac{ klzzwxh:0064athbf{y_1} }{2} klzzwxh:0065ight|^2+ y_2 klzzwxh:0066ullet y_3=" src="http://eq.springnote.com/tex_image?source=%5Cleft%7C%20%5Cfrac%7B%20%5Cmathbf%7Bx%7D%20%7D%7B2%7D%20%5Cright%7C%5E2%2B%0D%0A%5Cleft%7C%20%5Cfrac%7B%20%5Cmathbf%7By_1%7D%20%7D%7B2%7D%20%5Cright%7C%5E2%2B%0D%0Ay_2%20%5Cbullet%20y_3%3D0%0D%0A"/> 이제 다음과 같이 말할 수 있다.</img></img></img></img></img></img></img></img></img></img></img></img></img></img></img></img></p>
+<p>[정리 2] <img alt="A=\\begin{pmatrix} a_1 &amp; a_2 \\ a_3 &amp; a_4 \\end{pmatrix}" class="equation" src="http://eq.springnote.com/tex_image?source=A%3D%5Cbegin%7Bpmatrix%7D%20a_1%20%26%20a_2%20%5C%5C%20a_3%20%26%20a_4%20%5Cend%7Bpmatrix%7D">, <img alt="B=\\begin{pmatrix} b_1 &amp; b_2 \\ b_3 &amp; b_4 \\end{pmatrix}" class="equation" src="http://eq.springnote.com/tex_image?source=B%3D%5Cbegin%7Bpmatrix%7D%20b_1%20%26%20b_2%20%5C%5C%20b_3%20%26%20b_4%20%5Cend%7Bpmatrix%7D">에 대하여 <img alt="A^2+B^2=0" src="http://eq.springnote.com/tex_image?source=A%5E2%2BB%5E2%3D0"/>는 다음과 동치이다.<img alt="(0,\\ 0),\\ \\mathbf{y_2}=(a_2,\\ b_2),\\ \\mathbf{y_3}=(a_3,\\ b_3),\\ \\mathbf{y_1}=(a_1-a_4,\\ b_1-b_4)" class="equation" src="http://eq.springnote.com/tex_image?source=%280%2C%5C%200%29%2C%5C%20%5Cmathbf%7By_2%7D%3D%28a_2%2C%5C%20b_2%29%2C%5C%20%5Cmathbf%7By_3%7D%3D%28a_3%2C%5C%20b_3%29%2C%5C%20%5Cmathbf%7By_1%7D%3D%28a_1-a_4%2C%5C%20b_1-b_4%29"> 가<img alt="\\mathbf{x}=(a_1+a_4,\\ b_1+b_4)" class="equation" src="http://eq.springnote.com/tex_image?source=%5Cmathbf%7Bx%7D%3D%28a_1%2Ba_4%2C%5C%20b_1%2Bb_4%29"> 를 법선으로 하는 하나의 직선 위에 있으며 동시에<img alt="klzzwxh:0103eft| klzzwxh:0104rac{ klzzwxh:0105athbf{x} }{2} klzzwxh:0106ight|^2+ klzzwxh:0107eft| klzzwxh:0108rac{ klzzwxh:0109athbf{y_1} }{2} klzzwxh:0110ight|^2+ y_2 klzzwxh:0111ullet y_3=" src="http://eq.springnote.com/tex_image?source=%5Cleft%7C%20%5Cfrac%7B%20%5Cmathbf%7Bx%7D%20%7D%7B2%7D%20%5Cright%7C%5E2%2B%0D%0A%5Cleft%7C%20%5Cfrac%7B%20%5Cmathbf%7By_1%7D%20%7D%7B2%7D%20%5Cright%7C%5E2%2B%0D%0Ay_2%20%5Cbullet%20y_3%3D0%0D%0A"/>가 성립한다.잘 생각해 보면 다음 사실도 얻을 수 있다.[정리 3] <img alt="A=\\begin{pmatrix} a_1 &amp; a_2 \\ a_3 &amp; a_4 \\end{pmatrix}" class="equation" src="http://eq.springnote.com/tex_image?source=A%3D%5Cbegin%7Bpmatrix%7D%20a_1%20%26%20a_2%20%5C%5C%20a_3%20%26%20a_4%20%5Cend%7Bpmatrix%7D">, <img alt="B=\\begin{pmatrix} b_1 &amp; b_2 \\ b_3 &amp; b_4 \\end{pmatrix}" class="equation" src="http://eq.springnote.com/tex_image?source=B%3D%5Cbegin%7Bpmatrix%7D%20b_1%20%26%20b_2%20%5C%5C%20b_3%20%26%20b_4%20%5Cend%7Bpmatrix%7D">, <img alt="C=\\begin{pmatrix} c_1 &amp; c_2 \\ c_3 &amp; c_4 \\end{pmatrix}" class="equation" height="42" src="http://eq.springnote.com/tex_image?source=C%3D%5Cbegin%7Bpmatrix%7D%20c_1%20%26%20c_2%20%5C%5C%20c_3%20%26%20c_4%20%5Cend%7Bpmatrix%7D" width="84">에 대하여 <img alt="A^2+B^2+C^2=0" class="equation" src="http://eq.springnote.com/tex_image?source=A%5E2%2BB%5E2%2BC%5E2%3D0">은 다음과 동치이다.<img alt="(0,\\ 0,\\ 0),\\ \\mathbf{y_2}=(a_2,\\ b_2,\\ c_2),\\ \\mathbf{y_3}=(a_3,\\ b_3,\\ c_3),\\ \\mathbf{y_1}=(a_1-a_4,\\ b_1-b_4,\\ c_1-c_4)" class="equation" src="http://eq.springnote.com/tex_image?source=%280%2C%5C%200%2C%5C%200%29%2C%5C%20%5Cmathbf%7By_2%7D%3D%28a_2%2C%5C%20b_2%2C%5C%20c_2%29%2C%5C%20%5Cmathbf%7By_3%7D%3D%28a_3%2C%5C%20b_3%2C%5C%20c_3%29%2C%5C%20%5Cmathbf%7By_1%7D%3D%28a_1-a_4%2C%5C%20b_1-b_4%2C%5C%20c_1-c_4%29"> 가<img alt="\\mathbf{x}=(a_1+a_4,\\ b_1+b_4,\\ c_1+c_4)" class="equation" src="http://eq.springnote.com/tex_image?source=%5Cmathbf%7Bx%7D%3D%28a_1%2Ba_4%2C%5C%20b_1%2Bb_4%2C%5C%20c_1%2Bc_4%29"> 를 법선으로 하는 하나의 평면 위에 있으며 동시에<img alt="klzzwxh:0138eft| klzzwxh:0139rac{ klzzwxh:0140athbf{x} }{2} klzzwxh:0141ight|^2+ klzzwxh:0142eft| klzzwxh:0143rac{ klzzwxh:0144athbf{y_1} }{2} klzzwxh:0145ight|^2+ y_2 klzzwxh:0146ullet y_3=" src="http://eq.springnote.com/tex_image?source=%5Cleft%7C%20%5Cfrac%7B%20%5Cmathbf%7Bx%7D%20%7D%7B2%7D%20%5Cright%7C%5E2%2B%0D%0A%5Cleft%7C%20%5Cfrac%7B%20%5Cmathbf%7By_1%7D%20%7D%7B2%7D%20%5Cright%7C%5E2%2B%0D%0Ay_2%20%5Cbullet%20y_3%3D0%0D%0A"/>가 성립한다.다시 변수가 2개인 경우로 돌아가자.행렬 <img alt="B" class="equation" src="http://eq.springnote.com/tex_image?source=B">에 관한 방정식 <img alt="A^2+B^2=0" src="http://eq.springnote.com/tex_image?source=A%5E2%2BB%5E2%3D0"/>의 해가 존재하기 위해서 <img alt="A" src="http://eq.springnote.com/tex_image?source=A"/>는 어떤 조건을 만족해야 하는가?원점을 지나는 직선 위에 벡터들이 있으며 또 그 법선이 <img alt="\\mathbf{x}" class="equation" src="http://eq.springnote.com/tex_image?source=%5Cmathbf%7Bx%7D">이므로<img alt="a_2 : b_2=" class="equation" src="http://eq.springnote.com/tex_image?source=a_2%20%3A%20b_2%3Da_3%3Ab_3%3Da_1-a_4%3Ab_1-b_4%3Db_1%2Bb_4%3A-a_1-a_4">가 성립하는데 그 비율을 <img alt="1:k" class="equation" src="http://eq.springnote.com/tex_image?source=1%3Ak">라고 하자.<img alt="klzzwxh:0148eft| klzzwxh:0149rac{ klzzwxh:0150athbf{x} }{2} klzzwxh:0151ight|^2+ klzzwxh:0152eft| klzzwxh:0153rac{ klzzwxh:0154athbf{y_1} }{2} klzzwxh:0155ight|^2+ y_2 klzzwxh:0156ullet y_3=" src="http://eq.springnote.com/tex_image?source=%5Cleft%7C%20%5Cfrac%7B%20%5Cmathbf%7Bx%7D%20%7D%7B2%7D%20%5Cright%7C%5E2%2B%0D%0A%5Cleft%7C%20%5Cfrac%7B%20%5Cmathbf%7By_1%7D%20%7D%7B2%7D%20%5Cright%7C%5E2%2B%0D%0Ay_2%20%5Cbullet%20y_3%3D0%0D%0A"/>를 풀어서 쓴 ⓕ를 가져오면<img alt=" \\frac{tr(A)^2+(a_1-a_4)^2}{2}+ \\frac{tr(B)^2+(b_1-b_4)^2}{2}+ 2a_2a_3+2b_2b_3=0 " class="equation" src="http://eq.springnote.com/tex_image?source=%20%5Cfrac%7Btr%28A%29%5E2%2B%28a_1-a_4%29%5E2%7D%7B2%7D%2B%20%5Cfrac%7Btr%28B%29%5E2%2B%28b_1-b_4%29%5E2%7D%7B2%7D%2B%202a_2a_3%2B2b_2b_3%3D0%20"> 를 만족하여야 하는데<img alt="\\Leftrightarrow \\ tr(A)^2 \\left( \\frac{1}{2}+\\frac{1}{2k^2} \\right)+\\frac{(a_1-a_4)^2}{2} (1+k^2)+2a_2a_3(1+k^2)=0" class="equation" src="http://eq.springnote.com/tex_image?source=%5CLeftrightarrow%20%5C%20tr%28A%29%5E2%20%5Cleft%28%20%5Cfrac%7B1%7D%7B2%7D%2B%5Cfrac%7B1%7D%7B2k%5E2%7D%20%5Cright%29%2B%5Cfrac%7B%28a_1-a_4%29%5E2%7D%7B2%7D%20%281%2Bk%5E2%29%2B2a_2a_3%281%2Bk%5E2%29%3D0"><img alt="\\Leftrightarrow \\ tr(A)^2 \\left( \\frac{1}{2}+\\frac{1}{2k^2} \\right)+\\left( \\frac{(a_1-a_4)^2}{2}+2a_2a_3 \\right) (1+k^2)=0" class="equation" src="http://eq.springnote.com/tex_image?source=%5CLeftrightarrow%20%5C%20tr%28A%29%5E2%20%5Cleft%28%20%5Cfrac%7B1%7D%7B2%7D%2B%5Cfrac%7B1%7D%7B2k%5E2%7D%20%5Cright%29%2B%5Cleft%28%20%5Cfrac%7B%28a_1-a_4%29%5E2%7D%7B2%7D%2B2a_2a_3%20%5Cright%29%20%281%2Bk%5E2%29%3D0">이 때 <img alt="\\left( \\frac{(a_1-a_4)^2}{2}+2a_2a_3 \\right)" class="equation" src="http://eq.springnote.com/tex_image?source=%5Cleft%28%20%5Cfrac%7B%28a_1-a_4%29%5E2%7D%7B2%7D%2B2a_2a_3%20%5Cright%29">가 양수이면 좌변은 <img alt="k" src="http://eq.springnote.com/tex_image?source=k"/>의 값에 관계없이 양수가 되므로 해가 존재하지 않는 경우이고<img alt="\\left( \\frac{(a_1-a_4)^2}{2}+2a_2a_3 \\right)" class="equation" src="http://eq.springnote.com/tex_image?source=%5Cleft%28%20%5Cfrac%7B%28a_1-a_4%29%5E2%7D%7B2%7D%2B2a_2a_3%20%5Cright%29">가 음수이면 <img alt="k" src="http://eq.springnote.com/tex_image?source=k"/>가 0에 가까울 때에는 좌변이 양수인데 <img alt="k" class="equation" height="12" src="http://eq.springnote.com/tex_image?source=k" width="8">를 충분히 크게 잡아 음수가 되게 할 수 있으므로중간값 정리에 의하여 적당한 <img alt="k" src="http://eq.springnote.com/tex_image?source=k"/>가 존재하게 되고 즉 <img alt="B" class="equation" src="http://eq.springnote.com/tex_image?source=B">의 해가 존재한다.연구 결과 : 연구에서는 밝히지 않았으나 변수들이 더 많아도 똑같은 식으로 방정식의 특성이 기술될 수 있다.그리고 <img alt="\\mathbf{y_2}" class="equation" src="http://eq.springnote.com/tex_image?source=%5Cmathbf%7By_2%7D">또는 <img alt="\\mathbf{y_3}" class="equation" src="http://eq.springnote.com/tex_image?source=%5Cmathbf%7By_3%7D"> 중 하나에 적당히 상수배를 하면 나머지 변수들이 첫 조건을 만족하면서 임의로 주어지더라도두번째 조건을 만족시키도록 설정할 수 있다는 것도 금방 관찰할 수 있다.또 마지막 논의 - 행렬 <img alt="B" class="equation" src="http://eq.springnote.com/tex_image?source=B">에 관한 방정식 <img alt="A^2+B^2=0" src="http://eq.springnote.com/tex_image?source=A%5E2%2BB%5E2%3D0"/>의 해가 존재하기 위해서 <img alt="A" src="http://eq.springnote.com/tex_image?source=A"/>는 어떤 조건을 만족해야 하는가? 에 관해서는이 결과물로 인하여 앞으로 행렬에 관한 연구를 할 때에도 위 특성을 가지고 경우를 나누어 가는 새로운 접근법을 얻었다고 할 수 있다.이것은 내가 이전에 연구했던 행렬에 관한 피타고라스 방정식에도 좋은 접근법이 될 수 있을 것이라 생각한다.</img></img></img></img></img></img></img></img></img></img></img></img></img></img></img></img></img></img></img></img></img></img></img></img></p>
+<h2>참고문헌</h2>
+<ul>
+<li>수학의 정석 수학Ⅰ 실력편. 홍성대. 성지출판(주)</li>
+</ul>
+</article>
+
+<article>
+    <header>
+        
+        <h1><a href="2010/10/24/efficient-server-architecture-through-caching/">캐싱을 통한 효율적 서버 아키텍쳐의 구현</a></h1>
+        <time datetime="2010-10-24T00:00:00Z" pubdate>October 24, 2010</time>
+        
+    </header>
+    <ul>
+<li>국문 연구 주제: 캐싱을 통한 효율적 서버 아키텍쳐의 구현</li>
+<li>영문 연구 주제: Implementing an efficient server architecture through caching</li>
+<li>연구 분야: Server-Side Programming, Performance Optimization, Memcached</li>
+</ul>
+<h2>연구 내용 요약문</h2>
+<h3>연구 동기</h3>
+<p>최근 들어 외국 소셜 네트워크 서비스(Social Network Sevice, aka SNS) ‘트위터’의 인기가 폭등하고 있다. 트위터가 처리하는 요청의 개수는 천문학적으로 많은데, 하루 검색 요청만 6억 건이 넘고, API를 통해 들어오는 트윗이 30억 건이 넘는다고 한다. 이 많은 요청을 감당할 수 있는 서버 시스템을 어떻게 구성할 수 있는지에 대한 의문으로 이 연구를 시작하게 되었다.</p>
+<h3>연구내용 및 방법</h3>
+<p>웹 서비스로 들어오는 요청을 감당하지 못할 경우의 예를 찾아보고, 그 원인을 분석하고 부작용을 알아본다.트위터가 사용하는 서버에 대한 하드웨어 스펙을 찾아보고, 일반적인 구현 방법으로 그 하드웨어 스펙으로 트위터가 처리하는 양의 자료를 처리할 수 있는지 알아본다. 만약 일반적인 구현 방법으로 자료를 처리할 수 없다면, 어떻게 이를 실현하였는지 알아본다.트위터 서버가 사용하는 소프트웨어를 알아보고, 연구에 사용한 컴퓨터로 직접 트위터 서버 소프트웨어의 구성을 적용하여, 그 시너지 효과나 일반적인 구현과의 성능 차이를 조사해 본다.</p>
+<p>연구 후 느낀점: 성취감보다 미련이 더 많이 남는 연구였다. 아마 실험 시스템을 마련하는 과정에 있어서의 시행착오가 연구 기간의 2/3를 넘을 것이고, 많은 실패와 시간제한 때문에 포기한 부분도 많았다. 하지만, 연구 과정에서 많은 것을 배워 성취감을 느낄 줄 알고 있었고, 또 누군가가 이 문서를 보고 작은 도움이나마 받을 것이라는 것을 알고 있었기 때문에 이 연구를 마칠 수 있었다고 생각한다.</p>
+<h2>연구의 필요성 및 목적</h2>
+<p>최근 들어 인터넷 기술 분야에서 하루가 다르게 많은 일이 일어나고 있다. HTML5, AJAX, CSS3, OPEN API 등의 표준안과 다양한 응용 기술이 개발되고, 이 기술들을 기반으로 한 서비스들도 많아지고 있다. 이러한 서비스들이 기하급수적으로 사용자의 수를 확보하고, 서비스를 제공하는 서버들이 처리해야 할 요청(request)들의 개수도 따라 증가하게 되었다.</p>
+<p>하지만, 과유불급이라는 말이 있듯이, 이 많은 요청에 인해 서버에 걸리는 부하(workload)를 제대로 처리하지 못해서 사용자들에게 혼란을 주거나 다른 관련된 다른 서비스 사용까지 어렵게 한다면 재산상 피해뿐만 아니라 해당 서비스에 대한 사용자들의 인식이 부정적으로 바뀌어서 회복할 수 없는 손실을 볼 가능성이 크다. 이러한 일이 일어나는 이유는 물론 서버의 하드웨어 스펙이 딸려서 일수도 있겠지만, 무엇보다도 서버 운영에 사용하는 소프트웨어들의 결합이나 최적화가 제대로, 또는 충분히 이루어지지 않은 경우가 대부분이다.</p>
+<p>우리나라에서 이러한 일이 일어난 예를 들자면, ‘원어데이’의 원박스 사건, ’다음 아고라‘ 서명수 조작 논란 등이 있다. 이러한 불상사들이 일어난 적이 있고, 이에 대한 적절한 예방 조치를 취하지 않는다면 미래에 똑같은 일이 일어날 확률은 100%에 가깝다. 그렇다면 과연, 이러한 일들이 벌어지는 것을 막는 방법에는 어떤 것들이 있을까?</p>
+<p>외국 벤처 기업 ‘트위터’는 소셜 네트워크 서비스(SNS)로, 2006년도에 벤처 기업(startup company)으로 데뷔 한 이후 지금까지 무려 1억 명의 사용자들을 모았고, 하루에 30여 만 명의 새로운 사용자들이 가입한다고 한다. 트위터는 ‘트윗’ (Twit; 140 characters 한도 내의 문자)을 전 세계 트위터 사용자들에게 알리는 문자 라디오라고 말할 수 있다. 트위터가 처리하는 요청은 하루에 30억 개에 달하는데<sup id="fnref:1"><a href="2010/10/24/efficient-server-architecture-through-caching/#fn:1" rel="footnote">1</a></sup>, 이 천문학적인 양의 서버 부하를 트위터가 어떻게 처리하고, 그 방법을 다른 서비스에 어떻게 적용할 수 있는지에 대한 의문으로 이 연구를 시작하게 되었다.</p>
+<p>이 연구는 위와 같은 개인적인 의문 뿐만이 아니라 하드웨어적인 부분만을 지나치게 강조하고, 실제로 더 중요시해야 할 소프트웨어적인 부분을 경시하는 우리나라 IT 산업의 인식 전환을 통한 우리나라 인터넷 환경 발전을 위해서 하게 되었다. 또, 새로운 웹 서비스를 구축하고자 하는 개발자들에게 값진 참고 자료가 되기를 바라며 시작하게 되었다.</p>
+<h2>연구내용 정리</h2>
+<p>우선, ‘1. 연구의 필요성 및 목적’에서 언급했던 ‘다음 아고라’의 서명 수 조작 논란의 발발 원인을 알아보자. 일반적으로 대규모 웹 서비스에서는 웹 서버에 부하가 걸리더라도 서비스가 원활하게 이루어질 수 있도록 웹 서버와 데이터베이스(DB) 서버를 분산하여 운영한다.</p>
+<p>사용자들은 로드 밸런서(Load Balancer)라는 부하 분산 장치를 통하여 클러스터 내의 웹 서버에 접속하게 되는데, 이 로드 밸런서가 있기 때문에 하나의 웹 서버가 죽더라도 다른 서버를 통해 서비스를 이용할 수 있게 된다. 멀티 탭에 연결된 전기 기구 중 하나가 작동을 멈춘다 하더라도 나머지 전기 기구들은 계속 이용할 수 있는 것과 같은 원리이다.</p>
+<p>웹 서버에서 떨어져 나온 DB 서버들은 다시 한 번 더 마스터(Master) DB와 슬레이브(Slave) DB로 나뉘는데, 이는 슬레이브 DB가 처리하는 읽기(SELECT) 명령이 마스터 DB가 처리하는 쓰기(WRITE) 명령보다 월등하게 많기 때문이다.</p>
+<p><img alt="Master-Slave" src="2010/10/24/efficient-server-architecture-through-caching/master-slave.bmp"/></p>
+<p>하지만, 다음 아고라가 이런 식으로 서버 부하를 분산시켜 놓았다 하더라도 사용자들이 서명할 때마다 서명수+1 쓰기 요청을 보낸다면 마스터 DB도 장애를 겪을 수밖에 없다. 이를 방지하기 위해 이 +1되는 숫자를 모아 놓고 일정한 주기로 마스터 DB에 반영하는데, 이것을 캐싱(caching) 이라고 한다.</p>
+<p>그런데 만약, 동시 서비스 사용자 수가 서버 구조의 한계점까지 다다르면, 마스터 DB에 과부하가 걸려 각 슬레이브 DB로 캐시 된 자료의 전달이 느려지게 된다. 이때 서비스 이용자들은 각기 다른 결과, 즉 자료의 교란이 일어나는 것처럼 보이기 시작한다. 다음 아고라는 이 자료가 서명 수인 셈이다.</p>
+<p>캐시(cache)는, 자주 이용되는 자료에 더 빨리 접근하기 위해 사용하는 임시 장소이다. 일반적으로 자료는 데이터베이스에서 가져오는데, 이 과정은 대부분 하드디스크와 같은 저속 저장 매체에서 가져온다. 반면 캐시 된 자료는 CPU나 RAM과 같은 고속 저장 매체에서 가져온다. 자료의 캐싱을 통해 데이터베이스에서 머무르는 시간이나 대규모 프로그램의 성능을 대폭 향상시킬 수 있는데, 이를 구현한 대표적인 소프트웨어로는 memcached가 있다<sup id="fnref:3"><a href="2010/10/24/efficient-server-architecture-through-caching/#fn:3" rel="footnote">3</a></sup>.</p>
+<p><img alt="Cache" src="2010/10/24/efficient-server-architecture-through-caching/cache.bmp"/></p>
+<p>'1. 연구의 필요성 및 목적 ‘에서 ’문자 라디오 ‘라고 트위터를 간략히 표현하였다. 하지만, 일반 라디오와는 달리, 트위터의 기본 기능은 SMS, 웹, 인터넷 메신저 등의 다양한 애플리케이션(Twitterific, Pidgin etc.) 및 플랫폼(iPhone OS, Windows, Linux, Macintosh etc.)에서 오는 자료(트윗)들의 다리 역할을 하는 것이다. 보통, 사람들은 트위터 하면 제일 먼저 생각나는 게 무엇인지 물어보면 대부분 트위터가 뭔지 모르거나, 또는 웹사이트라고만 생각할 것인데, 사실 트위터 메인 홈페이지는 트위터 전체 트래픽의 10%도 채 차지하지 않는다. 나머지 90%는 API(Application programming interface)로부터 오는데, 이 90%가 바로 트위터라는 다리를 통해 들어오는 자료이다.</p>
+<p>트위터의 메인 웹 페이지는 시간대별로 사용자들의 트윗에 따라 Ruby On Rails를 통하여 동적으로 생성되는데, 이 생성된 페이지들은 쉴 새 없이 들어오는 트윗들 때문에 워낙 시간 변화에 민감하여 캐싱(caching)을 하지 않는다. 반면에 트위터 API를 통해 들어오는 트윗들은 memcached라는 소프트웨어를 통해 캐싱(caching) 되는데, 트위터 콘퍼런스 Chirp의 프레젠테이션에서 언급된 ‘Cache the hell out of everything’<sup id="fnref:4"><a href="2010/10/24/efficient-server-architecture-through-caching/#fn:4" rel="footnote">4</a></sup><sup id="fnref:5"><a href="2010/10/24/efficient-server-architecture-through-caching/#fn:5" rel="footnote">5</a></sup> 이라는 말에서 캐시가 트위터 운영에 얼마나 중요한 요소인지 알 수 있다.</p>
+<p>이 캐시가 서버의 성능에 얼마나 영향을 미치는지 알아보기 위해 일반적인 데이터베이스로부터 자료를 가져오는 웹 애플리케이션과 memcached를 통해 자료를 가져오는 웹 애플리케이션의 성능 측정(benchmark)을 해 보았다.</p>
+<p>다음은 테스트 시스템의 하드웨어 스펙이다.</p>
+<ul>
+<li>Intel Core2 Quad Q6600 @ 2.40GHz CPU</li>
+<li>4GB DDR3 1600MHz RAM</li>
+<li>Western Digital Raptor 1,0000rpm 150GB HDD</li>
+</ul>
+<p>다음은 테스트 시스템의 소프트웨어 구성이다. 트위터의 그것과 최대한 일치시키려 노력하였다.</p>
+<ul>
+<li>Ubuntu 10.04 Lucid Lynx Intel 64bit Kernel (latest updates)</li>
+<li>MySQL Community Server 5.1.47</li>
+<li>Memcached 1.4.5</li>
+<li>Apache HTTP Server 2.2.14</li>
+<li>PHP 5.3.2</li>
+<li>Drupal 6.16</li>
+<li>ApacheBench 2.3</li>
+</ul>
+<p>우분투로 부팅을 한 후 Bash에서 ab를 실행하였다. ab는 ApacheBench의 약자로, Apache HTTP Server를 벤치마킹하는 도구다. Administer - Site Configuration - Performance 메뉴를 통해 Drupal의 캐시 방법을 바꿔 가며 명령을 실행시킨 후 각 테스트의 정확도와 신뢰도를 높이기 위해 재부팅을 하였다. 또, ab에 쓰이는 자원를 벤치마킹 대상과 분리시키기 위해 ab는 대상 컴퓨터와 같은 로컬 네트워크 내에 있는 컴퓨터를 사용하였다.</p>
+<pre><code>limeburst@SandBox:~$ sudo ab -n 1000 -c 5 http://localhost/
+</code></pre>
+<p>root 권한으로 ab를 실행. http://localhost/ 에 5개의 요청을 동시에 1000번의 요청을 한다.</p>
+<p>※ ApacheBench를 통해 얻은 결과는 모든 캐시를 삭제하고 재부팅 한 후의 최초 실행 결과이다. 또, 이 서버 세팅에는 오차가 있을 수 있다(백그라운드 서비스 및 프로세스 노이즈 등).</p>
+<p>Caching mode: Disabled</p>
+<pre><code>Concurrency Level:      5
+Time taken for tests:   4.627 seconds
+Complete requests:      100
+Failed requests:        0
+Write errors:           0
+Total transferred:      655500 bytes
+HTML transferred:       594100 bytes
+Requests per second:    21.61 [#/sec] (mean)
+Time per request:       231.363 [ms] (mean)
+Time per request:       46.273 [ms] (mean, across all concurrent requests)
+Transfer rate:          138.34 [Kbytes/sec] received
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.5      0       1
+Processing:   161  226  52.4    218     464
+Waiting:      160  226  52.3    217     463
+Total:        161  227  52.4    218     464
+Percentage of the requests served within a certain time (ms)
+  50%    218
+  66%    240
+  75%    255
+  80%    263
+  90%    281
+  95%    349
+  98%    373
+  99%    464
+ 100%    464 (longest request)
+</code></pre>
+<p>Caching Mode: Normal (recommended for production sites, no side effects)</p>
+<pre><code>Concurrency Level:      5
+Time taken for tests:   0.719 seconds
+Complete requests:      100
+Failed requests:        0
+Write errors:           0
+Total transferred:      653885 bytes
+HTML transferred:       594100 bytes
+Requests per second:    139.07 [#/sec] (mean)
+Time per request:       35.952 [ms] (mean)
+Time per request:       7.190 [ms] (mean, across all concurrent requests)
+Transfer rate:          888.07 [Kbytes/sec] received
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.5      0       2
+Processing:    17   35  41.4     25     237
+Waiting:       17   35  41.4     25     237
+Total:         17   36  41.4     26     237
+Percentage of the requests served within a certain time (ms)
+  50%     26
+  66%     28
+  75%     30
+  80%     31
+  90%     38
+  95%    188
+  98%    225
+  99%    237
+ 100%    237 (longest request)
+</code></pre>
+<p>Caching Mode: Aggressive (experts only, possible side effects)</p>
+<pre><code>Concurrency Level:      5
+Time taken for tests:   0.741 seconds
+Complete requests:      100
+Failed requests:        0
+Write errors:           0
+Total transferred:      653885 bytes
+HTML transferred:       594100 bytes
+Requests per second:    134.94 [#/sec] (mean)
+Time per request:       37.052 [ms] (mean)
+Time per request:       7.410 [ms] (mean, across all concurrent requests)
+Transfer rate:          861.70 [Kbytes/sec] received
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.9      0       8
+Processing:    15   36  54.5     23     299
+Waiting:       15   36  54.5     23     299
+Total:         16   36  54.8     23     299
+Percentage of the requests served within a certain time (ms)
+  50%     23
+  66%     26
+  75%     28
+  80%     29
+  90%     37
+  95%    245
+  98%    281
+  99%    299
+ 100%    299 (longest request)
+</code></pre>
+<p>Caching Mode: Memcached
+<img alt="Memcached" src="2010/10/24/efficient-server-architecture-through-caching/memcached.bmp"/></p>
+<pre><code>Concurrency Level:      5
+Time taken for tests:   0.444 seconds
+Complete requests:      100
+Failed requests:        0
+Write errors:           0
+Total transferred:      653800 bytes
+HTML transferred:       594100 bytes
+Requests per second:    225.21 [#/sec] (mean)
+Time per request:       22.201 [ms] (mean)
+Time per request:       4.440 [ms] (mean, across all concurrent requests)
+Transfer rate:          1437.93 [Kbytes/sec] received
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.5      0       2
+Processing:    14   21   5.4     20      43
+Waiting:       14   21   5.5     19      43
+Total:         14   22   5.4     20      43
+Percentage of the requests served within a certain time (ms)
+  50%     20
+  66%     23
+  75%     25
+  80%     26
+  90%     29
+  95%     33
+  98%     41
+  99%     43
+ 100%     43 (longest request)
+</code></pre>
+<h2>연구 결과</h2>
+<p>위 실험 결과로 봤을 때, Memcached를 사용할 여건이 되지 않을 때에는 Agressive Caching을 사용하는 것이 캐싱을 사용하지 않는 것보다 훨씬 낫다는 사실을 알 수 있다. Memcached를 사용할 수 있을 때에는 Memcached를 사용하는 편이 요청 처리 시간을 대폭 단축할 수 있다. 전체적으로 봤을 때, Aggressive Caching을 사용했을 때의 최저 성능 하락은 예상을 벗어났지만, 그 외의 추측은 맞아떨어졌다.</p>
+<p>결론은, 캐싱은 서버 성능 향상에 매우 큰 도움이 되며, 따라서 소프트웨어적인 방법을 통한 최적화는 하드웨어보다 더 중요한 경우가 많으며, 무시해서는 안 될 매우 중요한 컴퓨터 분야의 한 부분이다. 대규모든 소규모든 웹 서비스 개발자들은 자신의 서비스를 위해 이 기술을 꼭 그들의 프로그램 제작에 써야 한다는 것이다. 또, 이미 만들어져 있는 캐싱 구현 소프트웨어가 있으므로 구현이 매우 쉬워 사용을 망설일 필요도 없다.</p>
+<p>개인적으로 트위터는 캐싱을 매우 잘 활용한 예라고 생각한다. 캐싱이라는 개념이 없었다면 지금의 트위터는 아마 존재하지 않았을 것이고, 또 트위터는 오픈 소스 소프트웨어들의 조합을 매우 잘 사용한 engineering marvel이라고 생각한다.</p>
+<p>가능하면 대규모 서버 클러스터들과 더 큰 Drupal 데이터베이스로 벤치마크를 실행하고 싶어서, 급하게 설치한 테스트 환경도 미련이 남고, 좀 더 정확하고 상세한 벤치마킹 결과를 내기 위해 현재 Apache Incubator에 있는 Olio와 Faban을 이용하여 벤치마킹을 하고 싶었지만 역시 시간이 촉박하여 실현하지 못한 것 등등 아쉬움이 크게 남는다. 트위터 서버의 소프트웨어 구성을 충분히 따라하지 못한 것도 아쉬움 중 하나이다.</p>
+<p>성취감보다 미련이 더 많이 남는 연구였다. 아마 실험 시스템을 마련하는 과정에 있어서의 시행착오가 연구 기간의 2/3을 넘을 것이고, 많은 실패와 시간제한 때문에 포기한 부분도 많았다. 하지만, 연구 과정에서 많은 것을 배워 성취감을 느낄 줄 알고 있었고, 또 누군가가 이 문서를 보고 작은 도움이나마 받을 것이라는 것을 알고 있었기 때문에 이 연구를 마칠 수 있었다고 생각한다. 부디 내가 이 연구에 투자한 막대한 시간과 노력을 알아주었으면 하는 바이다.</p>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:1">
+<p>http://jeffbullas.com/2010/04/16/twitter-reveals-11-new-facts-on-its-traffic-and-usage <a href="2010/10/24/efficient-server-architecture-through-caching/#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:2">
+<p>http://www.oreilly.de/catalog/9780596101718/figs/I_mediaobject9_d1e32691-web.png <a href="2010/10/24/efficient-server-architecture-through-caching/#fnref:2" rev="footnote" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:3">
+<p>http://en.wikipedia.org/wiki/Cache <a href="2010/10/24/efficient-server-architecture-through-caching/#fnref:3" rev="footnote" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+<li id="fn:4">
+<p>http://en.justin.tv/twitterchirp/videos <a href="2010/10/24/efficient-server-architecture-through-caching/#fnref:4" rev="footnote" title="Jump back to footnote 4 in the text">↩</a></p>
+</li>
+<li id="fn:5">
+<p>http://chirp.twitter.com <a href="2010/10/24/efficient-server-architecture-through-caching/#fnref:5" rev="footnote" title="Jump back to footnote 5 in the text">↩</a></p>
+</li>
+<li id="fn:6">
+<p>http://highscalability.com/scaling-twitter-making-twitter-10000-percent-faster <a href="2010/10/24/efficient-server-architecture-through-caching/#fnref:6" rev="footnote" title="Jump back to footnote 6 in the text">↩</a></p>
+</li>
+<li id="fn:7">
+<p>http://memcached.org/ <a href="2010/10/24/efficient-server-architecture-through-caching/#fnref:7" rev="footnote" title="Jump back to footnote 7 in the text">↩</a></p>
+</li>
+<li id="fn:8">
+<p>https://help.ubuntu.com/community/ApacheMySQLPHP <a href="2010/10/24/efficient-server-architecture-through-caching/#fnref:8" rev="footnote" title="Jump back to footnote 8 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+</article>
+
+<article>
+    <header>
+        
+        <h1><a href="2010/07/25/pythagoras-theorem-zero-divisor/">2×2 영인자 행렬에 관한 피타고라스 방정식</a></h1>
+        <time datetime="2010-07-25T00:00:00Z" pubdate>July 25, 2010</time>
+        
+    </header>
+    <p>피타고라스 방정식은 다음과 같은 방정식을 말한다. 
+<div><br/></div>
+<div><p style="text-align: left;">[##<em>1N|cfile7.uf@1469553650128A5742C040.png|width="90" height="18" alt="사용자 삽입 이미지" filename="p1.png" filemime="image/png"|</em>##]</p><p style="text-align: left;">[##<em>1N|cfile6.uf@1130733D50128A580D73A8.png|width="74" height="18" alt="사용자 삽입 이미지" filename="p2.png" filemime="image/png"|</em>##]</p><br/></div>
+<div><br/></div>
+<div>이 방정식의 해는<br/></div>
+<div><br/></div>
+<div><p style="text-align: left;">[##<em>1N|cfile25.uf@1858323950128A582E3485.png|width="79" height="14" alt="사용자 삽입 이미지" filename="x.png" filemime="image/png"|</em>##]</p><p style="text-align: left;">[##<em>1N|cfile1.uf@196E483850128A592177E5.png|width="59" height="18" alt="사용자 삽입 이미지" filename="y.png" filemime="image/png"|</em>##]</p><p style="text-align: left;">[##<em>1N|cfile8.uf@1737DC3D50128A5909FFE9.png|width="79" height="15" alt="사용자 삽입 이미지" filename="z.png" filemime="image/png"|</em>##]</p> </div>
+<div><br/></div>
+<div>의 상수배임이 아주 널리 알려진 사실인데<br/></div>
+<div><br/></div>
+<div>이 방정식을 2×2 행렬에서 풀어보는 것도 충분히 의미가 있어 보인다.</div>
+<div><br/></div>
+<div>즉 다음과 같은 방정식</div>
+<div><br/></div>
+<div><p style="text-align: left;">[##<em>1N|cfile21.uf@1260123950128A552700CD.png|width="100" height="19" alt="사용자 삽입 이미지" filename="n1.png" filemime="image/png"|</em>##]</p>  (A, B, C = 2by2 행렬)</div>
+<div><br/></div>
+<div>의 해를 구하는 시도를 이 글에서 해보겠다.</div>
+<div><br/></div>
+<div>일반적인 2×2 행렬해를 찾는 것은 힘들 것이 분명해 보이는데,</div>
+<div><br/></div>
+<div><b>세 행렬이 모두 영인자임을 가정</b>한 상태로 논리를 전개했을 때 나름대로 의미가 있는</div>
+<div><br/></div>
+<div>결과를 얻어서 이 글에 실어본다.</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>일단 고등학교 과정에서도 쉽게 접할 수 있는 행렬에 관한 다음의 정리를 소개한다.</div>
+<div><br/></div>
+<div>&lt;케일리 해밀턴의 정리&gt;</div>
+<div><br/></div>
+<div>2by2 행렬 A에 대하여 다음이 성립한다.</div>
+<div><br/><p style="text-align: center;">[##<em>1N|cfile8.uf@201D2B4350128A59155BCA.png|width="203" height="22" alt="사용자 삽입 이미지" filename="c.h.png" filemime="image/png"|</em>##]</p><br/></div>
+<div>증명은 전개를 통하여 쉽게 확인이 되므로 생략하도록 하고,<br/></div>
+<div><br/></div>
+<div>우리가 관심을 두는 행렬이 모두 영인자인데, 영인자에 관하여 다음 식이 성립하는것도</div>
+<div><br/></div>
+<div>확인이 된다.</div>
+<div><br/></div>
+<div><p style="text-align: left;">[##<em>1N|cfile7.uf@125BC53850128A5430C838.png|width="106" height="22" alt="사용자 삽입 이미지" filename="g.png" filemime="image/png"|</em>##]</p><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>그래서 세개의 관계식을 얻는데 그것이</div>
+<div><br/></div>
+<div><p style="text-align: left;">[##<em>1N|cfile7.uf@147C034650128A552ECF6D.png|width="95" height="22" alt="사용자 삽입 이미지" filename="g1.png" filemime="image/png"|</em>##]</p><p style="text-align: left;">[##<em>1N|cfile22.uf@1912CB3E50128A552E3182.png|width="101" height="22" alt="사용자 삽입 이미지" filename="g2.png" filemime="image/png"|</em>##]</p><p style="text-align: left;">[##<em>1N|cfile7.uf@1405963450128A5532807F.png|width="98" height="22" alt="사용자 삽입 이미지" filename="g3.png" filemime="image/png"|</em>##]</p><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>이것을 대입하면</div>
+<div><br/></div>
+<div><p style="text-align: left;">[##<em>1N|cfile27.uf@1120D03750128A582F8766.png|width="203" height="19" alt="사용자 삽입 이미지" filename="w1.png" filemime="image/png"|</em>##]</p><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>그리고 양변에 트레이스를 씌우면 다음 식을 얻는다.</div>
+<div><br/></div>
+<div><br/></div>
+<div><p style="text-align: left;">[##<em>1N|cfile8.uf@113AA24450128A58098AE0.png|width="191" height="23" alt="사용자 삽입 이미지" filename="w2.png" filemime="image/png"|</em>##]</p><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>이것은 실로 <b>경이로운</b> 결과이다.</div>
+<div><span style="COLOR: rgb(80,180,202)"><br/></span></div>
+<div><font color="#006699">즉 세 쌍의 영인자 피타고라스 행렬에 대하여 그 트레이스가 다시 피타고라스 세쌍이 된다.</font></div>
+<div><br/></div>
+<div><br/></div>
+<div>더 나아가 보자. 트레이스가 피타고라스 세쌍이므로 다음과 같이 가정할 수 있을것이다.</div>
+<div>(상수배도 가능하지만 별로 의미가 없어 보인다.)</div>
+<div><br/></div>
+<div><br/></div>
+<div><p style="text-align: left;">[##<em>1N|cfile3.uf@136A884250128A5A31BD39.png|width="111" height="19" alt="사용자 삽입 이미지" filename="721-1.png" filemime="image/png"|</em>##]</p><p style="text-align: left;">[##<em>1N|cfile28.uf@1651183350128A5A012AD1.png|width="89" height="19" alt="사용자 삽입 이미지" filename="721-2.png" filemime="image/png"|</em>##]</p><p style="text-align: left;">[##<em>1N|cfile2.uf@1126203B50128A5A335F4E.png|width="113" height="19" alt="사용자 삽입 이미지" filename="721-3.png" filemime="image/png"|</em>##]</p><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>영인자이므로 행렬 A가 다음과 같이 생겼다고 가정할 수 있다.</div>
+<div><br/></div>
+<div><br/></div>
+<div><p style="text-align: left;">[##<em>1N|cfile1.uf@1448EE3F50128A590C6202.png|width="90" height="31" alt="사용자 삽입 이미지" filename="A.png" filemime="image/png"|</em>##]</p><p style="text-align: left;">[##<em>1N|cfile9.uf@194B444050128A592AFA50.png|width="95" height="31" alt="사용자 삽입 이미지" filename="B.png" filemime="image/png"|</em>##]</p><p style="text-align: left;">[##<em>1N|cfile27.uf@132A763C50128A5A23F186.png|width="99" height="28" alt="사용자 삽입 이미지" filename="C.png" filemime="image/png"|</em>##]</p><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div> * 각 행렬의 2행성분은 0이 아니면서 1행성분에 0이 있는 경우를 표현할 수가</div>
+<div> 없는 것이 사실이지만, 이 방향으로의 논의 역시도 그닥 의미가 있을만한</div>
+<div> 결론이 없는듯하므로 무시하겠다.</div>
+<div><br/></div>
+<div>그러면 위에서의 가정에 의하여</div>
+<div><br/></div>
+<div><p style="text-align: left;">[##<em>1N|cfile29.uf@1167BF4250128A5A35E110.png|width="111" height="15" alt="사용자 삽입 이미지" filename="fa.png" filemime="image/png"|</em>##]</p><p style="text-align: left;">[##<em>1N|cfile23.uf@201AB23C50128A5B32EC1B.png|width="98" height="18" alt="사용자 삽입 이미지" filename="fb.png" filemime="image/png"|</em>##]</p><p style="text-align: left;">[##<em>1N|cfile27.uf@14502B3C50128A5B0239FE.png|width="123" height="18" alt="사용자 삽입 이미지" filename="fc.png" filemime="image/png"|</em>##]</p><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>행렬 A, B, C를 직접 제곱해 보면 다음과 같다.<br/></div>
+<div><br/></div>
+<div><p style="text-align: center;">[##<em>1N|cfile9.uf@152B503B50128A5B31F648.png|width="430" height="41" alt="사용자 삽입 이미지" filename="A2.png" filemime="image/png"|</em>##]</p><p style="text-align: center;">[##<em>1N|cfile29.uf@1602084650128A5B29F4F2.png|width="398" height="41" alt="사용자 삽입 이미지" filename="B2.png" filemime="image/png"|</em>##]</p><p style="text-align: center;">[##<em>1N|cfile28.uf@1878553650128A5C35293C.png|width="450" height="57" alt="사용자 삽입 이미지" filename="C2.PNG" filemime="image/png"|</em>##]</p><br/></div>
+<div><br/></div>
+<div>그래서 다음과 같은 네 개의 방정식을 얻는다.</div>
+<div><br/></div>
+<div><p style="text-align: center;">[##<em>1N|cfile10.uf@19258D3450128A5C10E9BC.png|width="234" height="19" alt="사용자 삽입 이미지" filename="e1.png" filemime="image/png"|</em>##]</p><p style="text-alignnter;">[##<em>1N|cfile25.uf@122EF73C50128A5C200BA3.png|width="230" height="19" alt="사용자 삽입 이미지" filename="e2.png" filemime="image/png"|</em>##]</p><p style="text-align: center;">[##<em>1N|cfile10.uf@154BB74050128A5C26E578.png|width="261" height="19" alt="사용자 삽입 이미지" filename="e3.png" filemime="image/png"|</em>##]</p><p style="text-align: center;">[##<em>1N|cfile29.uf@14045A4550128A5C210396.png|width="257" height="19" alt="사용자 삽입 이미지" filename="e4.png" filemime="image/png"|</em>##]</p>순서대로 (1), (2), (3), (4)번 식이라고 해보자.</div>
+<div><br/></div>
+<div><br/></div>
+<div>ⓐ 만약 c=k 이라면, (1)번식을 c배하여 (3)번식과 비교하면 c=k=α 임이 확인된다.</div>
+<div><br/></div>
+<div>즉 (3)번식과 (4)번식이 의미가 없어지게 되고,</div>
+<div><br/></div>
+<div>사실 (1)이 성립할 때 (2)가 성립하도록 문자에 수들을 넣는 것은 어려운 일이 아니기 때문에<br/></div>
+<div><br/></div>
+<div>이 경우 무한히 많은 해를 가지게 된다.</div>
+<div><br/></div>
+<div>(그 해들이 가지는 특성을 잘 설명하는 것은 또다른 과제가 되겠다.)</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>ⓑ 그리고 c≠k인 경우에는 자명하게 c≠α, k≠α임을 알 수 있고</div>
+<div><br/></div>
+<div>이경우 (1)식에 α배를 하여 (3)식을 빼고,</div>
+<div><br/></div>
+<div>(2)식에 α배를 하여 (4)식을 빼면 다음 두 식을 얻는다.</div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><p style="text-align: center;">[##<em>1N|cfile25.uf@207ED23850128A5D0FDD19.png|width="266" height="19" alt="사용자 삽입 이미지" filename="k1.png" filemime="image/png"|</em>##]</p><p style="text-align: center;">[##<em>1N|cfile27.uf@1120564650128A5D10A880.png|width="262" height="19" alt="사용자 삽입 이미지" filename="k2.png" filemime="image/png"|</em>##]</p><br/></div>
+<div><br/></div>
+<div>즉 a:b=p:q라는 결론을 얻고,</div>
+<div><br/></div>
+<div>마찬가지 조작을 다른 변수들에 대해서도 해주면<br/></div>
+<div><br/></div>
+<div><span style="FONT-SIZE: medium"><font face="Gulim, sans-serif"><b>a : b = p : q = x : y </b></font></span> 라는 사실을 알게 된다.<br/></div>
+<div><br/></div>
+<div><br/></div>
+<div><br/></div>
+<div>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - </div>
+<div><br/></div>
+<div><br/></div>
+<div>
+<div style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px"><br/></div>
+<div style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px"># 이 글은 여기서 끝이며, 아쉽게도 내용의 완성도에 있어서 미완성이라고 할 수 있습니다.</div>
+<div style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px">
+<div style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px"><br style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px"/></div>
+<div style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px">영인자라는 가정 하에서 case에 따라서 꽤 강력해보이는 무기를 얻기는 했지만</div>
+<div style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px"><br style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px"/></div>
+<div style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px">더 진행하기 위해서는 수론적인 아이디어가 필요한 것 같습니다.</div>
+<div style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px"><br style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px"/></div>
+<div style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px">어쨌든 수학적 아이디어가 부족하여 글을 끝까지 맺지 못한 점이 굉장히 아쉽고.</div>
+<div style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px"><br style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px"/></div>
+<div style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px">마지막 논의에서 엄밀하지 못하게 논리를 끌고 나가는 것이 불편해 보이신다면</div>
+<div style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px"><br style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px"/></div>
+<div style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px">죄송하게 생각합니다 (__)</div></div></div></p>
+</article>
+
+<article>
+    <header>
+        
+        <h1><a href="2010/07/15/mimicking-euclid/">Euclid 흉내내기 : 코사인법칙의 그림 증명</a></h1>
+        <time datetime="2010-07-15T00:00:00Z" pubdate>July 15, 2010</time>
+        
+    </header>
+    <div><font color="#000000" face="'Times New Roman'" size="3"><span style="FONT-SIZE: 13px; LINE-HEIGHT: normal"><br/></span></font></div>
+<div>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><font size="2">이 글을 읽기 전에, 기본적으로 피타고라스의 정리의 한 증명법을 알아두면 좋다.</font></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><a href="http://en.wikipedia.org/wiki/Pythagorean_theorem"><font size="2">http://en.wikipedia.org/wiki/Pythagorean_theorem</font></a><font size="2"> 의 </font><font face="sans-serif"><span class="mw-headline Apple-style-span" id="mhgw"><b><font size="2">Euclid's proof</font></b><font size="2"> 란을 참고하라.</font></span></font></p><b><br/><b><b>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><font size="2">코사인 2법칙은 삼각형의 세 변 a, b, c와 a의 대각의 크기 θ에 대하여 성립하는 다음 식을 말한다.</font></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"></p><p style="text-align: left;">[##_1N|cfile10.uf@14433A3550128A5309F8F2.png|width="179" height="19" alt="사용자 삽입 이미지" filename="chart2.png" filemime="image/png"|_##]</p>
+<p></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"></p><p style="text-align: center;">[##_1N|cfile8.uf@197E553650128A52305ABA.png|width="441" height="379" alt="사용자 삽입 이미지" filename="1.png" filemime="image/png"|_##]</p>
+<p></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><font size="2">편의상 θ가 예각이라고 두면 위와 같은 그림을 그릴 수 있다. (θ가 둔각이어도 똑같은 방식으로 증명할 수 있다)</font></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><font size="2">마치 피타고라스의 정리를 위하여 Euclid가 쓴 방법처럼, 다음 그림처럼 a, b, c를 한 변으로 하는 정사각형을 삼각형 밖으로 그린다.</font></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"></p><p style="text-align: center;">[##_1N|cfile6.uf@1117FD4550128A521239E5.png|width="450" height="427" alt="사용자 삽입 이미지" filename="2.png" filemime="image/png"|_##]</p>
+<p></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><font size="2">물론 각각의 정사각형의 넓이는 a^2, b^2, c^2임이 분명하다.</font></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><font size="2">또한 B, C에서 대변에 수선을 내리면, A에서 그 발까지의 거리가 각각 bcosθ, ccosθ임도 분명하다.</font></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"></p><p style="text-align: center;">[##_1N|cfile2.uf@11459A4150128A521E1FD1.png|width="450" height="442" alt="사용자 삽입 이미지" filename="3.png" filemime="image/png"|_##]</p>
+<p></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><font size="2">이제 다음과 같이 넓이간의 관계를 살필 것이다.</font></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"></p><p style="text-align: center;">[##_1N|cfile8.uf@154E913F50128A5305349C.png|width="450" height="421" alt="사용자 삽입 이미지" filename="4.png" filemime="image/png"|_##]</p>
+<p></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><font size="2">위의 그림에서 같은 색으로 색칠한 도형의 넓이가 같음을 우리는 이미 안다. (Euclid가 썼던 바로 그 방법!)<br/><br/><br/></font></p><p style="text-align: center;"><font size="2">[##_1N|cfile9.uf@142DE83350128A5325A85E.png|width="450" height="429" alt="사용자 삽입 이미지" filename="5.png" filemime="image/png"|_##]</font></p>
+<p></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p><br/>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><font size="2">약간의 관찰을 통하여, 위의 그림에서 추가로 색칠된 도형끼리도 넓이가 같음을 알 수 있다.</font></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><font size="2">(직사각형의 넓이는 밑변×높이로 표현되므로, 높이가 같은 두 직사각형의 넓이비는 밑변의 비와 같다.</font></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><font size="2">즉 노란색 정사각형과 회색 직사각형의 넓이비는 밑변의 비와 같은데 이 비를 관찰하면 위의 주장이 사실임을 알 수 있다)</font></p><br/><br/>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"></p><p style="text-align: center;">[##_1N|cfile3.uf@207CB54350128A533186AF.png|width="450" height="455" alt="사용자 삽입 이미지" filename="6.png" filemime="image/png"|_##]</p>
+<p></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><font size="2">색칠되지 않고 남아있는 부분의 넓이가 각각 bccosθ임도 쉽게 얻어진다.</font></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><font size="2">이제 위의 관찰을 모두 도합해 보면</font></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p><p style="text-align: left;">[##_1N|cfile25.uf@141D574450128A541E1DA0.png|width="450" height="16" alt="사용자 삽입 이미지" filename="chart3.png" filemime="image/png"|_##]</p>
+<p></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/> </p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><br/></p>
+<p style="MARGIN: 0pt; TEXT-ALIGN: justify"><font size="2">이것으로 코사인법칙이 그림으로 증명된다.</font></p>
+<div><font size="2"><br/></font></div></b></b></b></div>
+</article>
+
+<article>
+    <header>
+        
+        <h1><a href="2010/07/15/infinitely-nested-radical/">√(2√(3√(4‥√n))) 꼴의 극한에 대하여</a></h1>
+        <time datetime="2010-07-15T00:00:00Z" pubdate>July 15, 2010</time>
+        
+    </header>
+    <ul>
+<li>이 글은 울산과학고등학교 수학스터디그룹 '이석당' 에서 제기된 것을 기초로 하였다. 
+<blockquote><span style="FONT-SIZE: 13px; COLOR: rgb(0,0,0); LINE-HEIGHT: normal; FONT-FAMILY: Verdana"><p style="text-align: left;">[##<em>1N|cfile1.uf@137DA93850128A5011D019.png|width="118" height="46" alt="사용자 삽입 이미지" filename="chart.png" filemime="image/png"|</em>##]</p><br/>  꼴의 극한에 대하여</span></blockquote>
+<div><br/></div>
+<div>위와 같은 문제는 매우 흥미롭지만 동시에 잘 감이 잡히지 않는다.</div>
+<div>이 글에서는 위 식의 수렴성과 그 범위를 구하는 여러가지 시도를 소개해 보겠다.</div>
+<div><br/> </div>
+<div><br/></div>
+<div>[ 1 ] 무한루트에 관계된 몇가지 상식</div>
+<div><span style="FONT-SIZE: 16px; COLOR: rgb(0,0,0); LINE-HEIGHT: 24px; FONT-FAMILY: sans-serif">
+<div><br/></div>
+<div><span style="FONT-SIZE: small"><a href="http://en.wikipedia.org/wiki/Srinivasa_Ramanujan" target="_blank">스리니바사 라마누잔</a></span><span style="FONT-SIZE: small">(srinivasa ramanujan)이라는 수학자가 인도의 한 수학 저널에 Nested radical(근호 안에 또다른 근호를 포함하는 식. 중고등학교때 이중 근호의 형태로 많이 배운다)를 응용하는 문제를 냈었다. 이것은 무한 근호 (infinitely nested radicals)에 관한 것이었는데, 그가 해법을 공개하기 전까지 아무도 풀이를 제시하지 못했다고 한다.</span><br/></div>
+<div><span style="FONT-SIZE: small"><br/></span></div>
+<div><span style="FONT-SIZE: small">그 문제는 다음과 같은 꼴의 식의 극한을 구하는 것이었고,</span></div>
+<div><span style="FONT-SIZE: small"><br/></span></div>
+<div><p style="text-align: center;">[##<em>1N|cfile6.uf@204E8E3750128A5009A84E.png|width="173" height="42" alt="사용자 삽입 이미지" filename="s problem.png" filemime="image/png"|</em>##]</p></div>
+<div><span style="FONT-SIZE: small">그 해법을 위하여 라마누잔은 다음과 같은 식을 사용했다.</span></div>
+<div><span style="FONT-SIZE: small"><br/></span></div>
+<div><p style="text-align: center;">[##<em>1N|cfile3.uf@19175D3D50128A50246050.png|width="450" height="37" alt="사용자 삽입 이미지" filename="infinitely nested radicals.png" filemime="image/png"|</em>##]</p><span style="FONT-SIZE: small"><br/></span></div>
+<div><span style="FONT-SIZE: small">이 식에서 </span><span style="FONT-SIZE: large">a=0, n=1, x=2 </span><span style="FONT-SIZE: small">를 대입하면 식의 우변이 문제와 정확히 일치하며</span></div>
+<div><span style="FONT-SIZE: small">따라서 문제의 답은 3이 됨을 쉽게 확인할 수 있다.</span></div>
+<div><span style="FONT-SIZE: small"><br/></span></div>
+<div><span style="FONT-SIZE: small"><br/></span></div>
+<div><span style="FONT-SIZE: small">이 문제의 결과를 우리가 논의하고 싶은 문제에 그대로 가져올 수 있다.</span></div>
+<div><span style="FONT-SIZE: small">즉 <p style="text-align: center;">[##<em>1N|cfile24.uf@172A693B50128A50321EF9.png|width="327" height="50" alt="사용자 삽입 이미지" filename="inequality.png" filemime="image/png"|</em>##]</p></span></div>
+<div><span style="FONT-SIZE: small">가 성</span><span style="FONT-SIZE: small">립하므로..</span></div>
+<div><span style="FONT-SIZE: small"><br/></span></div>
+<div><p style="text-align: center;">[##<em>1N|cfile8.uf@182AE24350128A511008D4.png|width="161" height="50" alt="사용자 삽입 이미지" filename="wow.png" filemime="image/png"|</em>##]</p></div>
+<div><span style="FONT-SIZE: small">가 된다. 즉 우리의 관심이 되는 식의 한 상계를 찾았다.</span></div>
+<div><span style="FONT-SIZE: small"><br/></span></div>
+<div><span style="FONT-SIZE: small">* 상계를 찾았으므로 위 식의 수렴성도 자동으로 보장된다.</span></div>
+<div><span style="FONT-SIZE: small">(위로 유계인 증가수열은 수렴한다는 간단한 사실에 의해서 그렇다.)</span></div></span></div>
+<div><span style="FONT-SIZE: small"><br/></span></div>
+<div><span style="FONT-SIZE: small"><br/></span></div>
+<div><span style="FONT-SIZE: small">[ 2 ] 위 결과를 도출하는 또다른 방법</span></div>
+<div><span style="FONT-SIZE: small"><br/></span></div>
+<div><span style="FONT-SIZE: small">무한 루트를 이용하지 않고도 이 상계를 얻을 수 있는데 그 방법은 다음과 같다.</span></div>
+<div><span style="FONT-SIZE: small"><br/></span></div>
+<div><span style="FONT-SIZE: small"><br/></span>
+<div><p style="text-align: center;">[##<em>1N|cfile9.uf@196B574550128A5034E3C5.jpg|width="450" height="466" alt="사용자 삽입 이미지" filename="Proposal 첨부.jpg" filemime="image/jpeg"|</em>##]</p></div>
+<div><span style="FONT-SIZE: small; LINE-HEIGHT: 22px">(풀이의 중간에 "더 강한 부등식"을 제안하는 과정이 굉장히 중요하다.)</span></div>
+<div><span style="FONT-SIZE: small"><br/></span></div>
+<div><span style="FONT-SIZE: small"><br/></span></div>
+<div><span style="FONT-SIZE: small"><br/>[ 3 ] 아벨의 정리와 생성함수의 닫힌 식</span></div>
+<div><span style="FONT-SIZE: small"><br/></span></div>
+<div><span style="FONT-SIZE: small; LINE-HEIGHT: 22px">[ 2 ]의 풀이에서 로그를 이용한 아이디어를 계속 이용해 나가자.<br/><br/>처음에 관심을 가진 다음과 같은 식<br/><br/><br/></span><span style="FONT-SIZE: small; LINE-HEIGHT: 22px"><p style="text-align: center;">[##<em>1N|cfile1.uf@137DA93850128A5011D019.png|width="118" height="46" alt="사용자 삽입 이미지" filename="chart.png" filemime="image/png"|</em>##]</p>의 극한을 구하는 것은 결국 다음과 같은 급수의 수렴값을 구하는 것이 된다.<br/><br/><br/><p style="text-align: center;">[##<em>1N|cfile29.uf@1118E73E50128A512DC045.png|width="273" height="35" alt="사용자 삽입 이미지" filename="급수.png" filemime="image/png"|</em>##]</p><br/>그런데 <a href="http://en.wikipedia.org/wiki/Abel's_theorem" target="_blank">아벨의 극한 정리</a>를 이용하면 다음과 같은 식이 성립하므로..<br/><br/><br/><br/><p style="text-align: center;">[##<em>1N|cfile25.uf@20192E3550128A512C4317.png|width="236" height="46" alt="사용자 삽입 이미지" filename="아벨의 정리 사용후.png" filemime="image/png"|</em>##]</p><br/>만약 생성함수를 풀듯이 다음과 같은 식의 닫힌 식을 구할 수 있게 된다면<br/>모든 문제는 끝나게 된다.<br/>(하지만 끝내지 못했다. 이 식을 간단히 하는 것은 쉽지 않아 보인다.)<br/><p style="text-align: center;">[##<em>1N|cfile24.uf@160FED3550128A5134ACD6.png|width="98" height="26" alt="사용자 삽입 이미지" filename="최종목표.png" filemime="image/png"|</em>##]</p></span></div></div><div><br/></div><div> </div></li>
+</ul>
+</article>
+
+<article>
+    <header>
+        
+        <h1><a href="2010/06/26/introduction/">필진 소개</a></h1>
+        <time datetime="2010-06-26T00:00:00Z" pubdate>June 26, 2010</time>
+        
+    </header>
+    <p>Jong Min Lee</p>
+<ul>
+<li>이종민 (동아리장)</li>
+<li>울산과학고등학교 2학년생</li>
+<li>email to : jongmin at hona dot kr</li>
+</ul>
+<p>Ji Hyeok Seo</p>
+<ul>
+<li>서지혁</li>
+<li>울산제일고등학교 2학년생</li>
+<li>email to : jihyeok at hona dot kr</li>
+<li>meet me on <a href="http://twitter.com/LimeBurst">twitter</a></li>
+</ul>
+<p>Suk Young Jeong</p>
+<ul>
+<li>정석영</li>
+<li>울산과학고등학교 2학년생</li>
+<li>email to : suk at hona dot kr</li>
+<li>meet me at <a href="http://eilog.tistory.com">my blog</a> or on <a href="http://twitter.com/Eila_a">twitter</a></li>
+</ul>
+<p>Ji Won Park</p>
+<ul>
+<li>박지원</li>
+<li>울산과학고등학교 2학년생</li>
+<li>email to : jiwon at hona dot kr</li>
+</ul>
+<p>Hyun Ho Yeo</p>
+<ul>
+<li>여현호</li>
+<li>울산과학고등학교 2학년생</li>
+<li>email to : hyunho at hona dot kr</li>
+</ul>
+<p>Young Jin Kim</p>
+<ul>
+<li>김영진</li>
+<li>울산과학고등학교 2학년생</li>
+<li>email to : youngjin at hona dot kr</li>
+</ul>
+<p>Hae Kyong Bae</p>
+<ul>
+<li>지도교사 배해경</li>
+<li>울산과학고등학교 물리 교사</li>
+<li>좋아하는 것 : 아마추어 천문 활동 </li>
+<li>email to : hkbae at hona dot kr </li>
+</ul>
+</article>
+
+<article>
+    <header>
+        
+        <h1><a href="2010/06/02/welcome/">환영합니다</a></h1>
+        <time datetime="2010-06-02T00:00:00Z" pubdate>June 02, 2010</time>
+        
+    </header>
+    <p>블로그 방문을 환영합니다. 이곳은 고등학생 탐구 동아리 Noah's ark의 팀 블로그입니다.</p>
+<p>Noah's ark는 노아의 방주라는 뜻입니다. 성경에 따르면, 노아는 하느님의 계시에 따라 모든 암수 동물 한 쌍씩을 데려다 방주를 구성했습니다. 저희는 저희가 궁금해하고, 또 알아보고 싶어하는 지식들을 모은 하나의 방주를 만들고 싶은 마음에 이러한 이름을 사용하게 되었습니다.</p>
+<p>어쩌면 우리의 글은 정말 하찮을지도 모르고, 또 여기에서 어떤 뛰어난 통찰이 담긴 글이 있을지도 모릅니다. 그러나 저희는 전자와 후자를 구분하지 않습니다. 그 글의 가치에 앞서서 저희가 알아보고 싶은 것을 연구하고 다른 동아리원, 또는 여러분과 서로 의견을 나누는 즐거움에 의의를 둡니다. 이것은 저희가 동아리를 결성한 목적이기도 합니다.</p>
+<p>고등학생 1학년 (2010년 기준)이 써봐야 뭘.. 하고 우습게 볼지도 모르겠습니다. 하지만 비록 그것이 사실일지라도 멈추지 않고 나아갈 것입니다.<br/>
+</p>
+<p>노아의 방주에 하느님의 뜻이 담겨 있듯이, 우리의 방주에는 우리의 뜻이 담겨 있습니다. 그리고 우리는 그 뜻을 이어 나갈 것입니다.<br/>
+</p>
+<p>2010.6.4 정부컴퓨터 앞에서.</p>
+<ul>
+<li>동아리장 이종민</li>
+<li>동아리원 정석영</li>
+<li>박지원</li>
+<li>서지혁</li>
+<li>김영진</li>
+<li>여현호</li>
+</ul>
+</article>
+
+<nav>
+    <h1>Monthly Archives</h1>
+    <ol>
+        
+        <li><a href="2010/12/">Dec 2010</a></li>
+        
+        <li><a href="2010/10/">Oct 2010</a></li>
+        
+        <li><a href="2010/07/">Jul 2010</a></li>
+        
+        <li><a href="2010/06/">Jun 2010</a></li>
+        
+    </ol>
+    <h1>Yearly Archives</h1>
+    <ol>
+        
+        <li><a href="2010/">2010</a></li>
+        
+    </ol>
+</nav>
+<footer>
+            <p></p>
+            <p>Site designed by <a href="http://limeburst.net/">LimeBurst</a>. Powered by <a href="http://yak.limelog.net/">Yak</a>.</p>
+        </footer>
+    </body>
+</html>
